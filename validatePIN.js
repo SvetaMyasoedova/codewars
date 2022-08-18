@@ -1,22 +1,18 @@
 function validatePIN (pin) {
-	if(isNaN(Number(pin))) return false;
 	
-	if(pin.split("").includes("." )) return false;
-	if(pin.split("").includes("-" )) return false;
-	if(pin.split("").includes(" ")) return false;
-	
-	if(pin.length ==4 || pin.length ==6)  {
+	if((/^\d+$/g.test(pin))  && (pin.length ==4 || pin.length ==6) )    {
 		return true
 	} else return false
 	
  }
 
- console.log(isNaN(Number('2e9608')))
+ 
+console.log(validatePIN("1234")); //true
+console.log(validatePIN("a234")); //false
+console.log(validatePIN("-1.234")); //false
+console.log(validatePIN("12.0")); //false
 
-
-
-//console.log(validatePIN("1234"));
-//console.log(validatePIN("12345"));
-//console.log(validatePIN("a234"));
-//console.log(validatePIN("-1.234"));
-console.log(validatePIN("123  "));
+//Best Practices
+function validatePIN(pin) {
+	return /^(\d{4}|\d{6})$/.test(pin)
+ }
