@@ -18,3 +18,8 @@ console.log(isIsogram("aba")); //false
 console.log(isIsogram("moOse")); //false
 console.log(isIsogram("isIsogram")); //false
 console.log(isIsogram("")); //true
+
+//clever
+function isIsogram(str){
+  return new Set(str.toUpperCase()).size == str.length;
+}
